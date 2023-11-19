@@ -1,0 +1,96 @@
+@import './abstracts/index.scss';   
+
+.footer{
+    box-shadow: 0 0 8px -2px $primary;
+    width: 100%;
+    &-container{
+        max-width: calc(100% - 40px);
+        width: 1250px;
+        position: relative;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;  
+        gap: 20px;
+        padding: 20px 0;
+        
+    }
+    &-info{
+        max-width: calc(100% - 20px);
+        width: 300px;
+        display: flex;
+        justify-content: center;
+    }
+    &-maps{
+        width: 260px;
+    }
+
+    &-info{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        svg path{
+            fill:  $text;
+        }
+        .info{
+            &-title{
+                width: 100%;
+                @include typhography(medium, 700, $primary);
+            }
+            &-item{
+                width: 100%;
+                @include typhography(small, 700, $text);
+                text-decoration: none;
+                &.contact:hover{
+                    svg path{
+                        fill:  $primary;
+                    }
+                    .contact-item{
+                        color: $primary;
+                    }
+                }
+            }
+            &-social{
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+                &--container{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 12px;
+                }
+                .social-item{
+                    path{
+                        fill: $text;
+                    }
+                    &:hover{
+                        path{
+                            fill: $primary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-copy{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 12px 20px;
+        gap: 12px;
+        strong{
+            @include typhography(small, 900, $text);
+        }
+        .copy-item{
+            @include typhography(small, 700, $primary);
+        }
+    }
+}

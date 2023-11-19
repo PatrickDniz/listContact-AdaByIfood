@@ -1,0 +1,27 @@
+@mixin containerConfig($width: 1920){
+  width: $width+px;
+  max-width: calc(100% - 20px);
+  height: fit-content;
+  margin: 0 auto;
+  position: relative;
+}
+
+@mixin mediaScreen($tamanho) {
+  @if $tamanho == "mobile" {
+    @media (max-width: 991px) {
+      @content;
+    }
+  } @else if $tamanho == "desktop" {
+    @media (min-width: 992px){
+      @content;
+    }
+  } @else if $tamanho == "cell" {
+    @media (max-width: 440px) {
+      @content;
+    }
+  } @else if $tamanho == "tablet" {
+    @media (min-width: 441px) and (max-width: 991px) {
+      @content;
+    }
+  } 
+}

@@ -1,0 +1,134 @@
+@import './abstracts/index.scss';   
+
+.list{
+    width: 1366px;
+    max-width: calc(100% - 20px);
+    padding-inline: 10px;
+    margin: 0 auto;
+    &-top{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding-block: 16px;
+    }
+    &-add{
+        display: flex;
+        align-items: center;
+        padding-inline: 20px;
+        gap: 12px;
+        &--name, &--tel{
+            position: relative;
+            width: calc(100% - 20px);
+            height: 40px;
+            border-radius: 8px;
+            padding-inline: 8px;
+            font-size: 16px;
+            outline: unset;
+            border: 1px solid #f5f5f521;
+            color: $text;
+            background-color: $secondaryBackground;
+            &:focus{
+                box-shadow: 0 0 8px -2px $primary;
+            }
+            &.error{
+                box-shadow: 0 0 8px -2px $redAlert;
+            }
+        }
+        &--button{
+            padding: 8px;
+            background-color: $primaryOpacity;
+            border-radius: 5px;
+            color: $text;
+            cursor: pointer;
+            fill: $text;
+            border: 1px solid $primaryOpacity;
+            &:hover{
+                border-color: $primary;
+            }
+        }
+    }
+
+    &-container{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        gap: 8px;
+        padding: 20px;
+        &--empty{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: calc(100% - 40px);
+            text-align: center;
+            padding: 20px;
+            z-index: 0;
+            @include typhography(medium, 700, $primary);
+        }
+
+        @media (max-width: 991px) {
+            min-height: 150px;
+        }
+        @media (min-width: 992px) {
+            min-height: 300px;
+        }
+    }
+    &-title{
+        width: 100%;
+        @include typhography(big, 700, $text);
+    }
+    &-item{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 16px;
+        border: 1px solid #f5f5f521;
+        background-color: $secondaryBackground;
+        border-radius: 5px;
+        padding: 16px;
+        z-index: 1;
+        &--text{
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            gap: 8px;
+            strong{
+                border-bottom: 1px solid $primary;
+                @include typhography(medium, 700, $text);
+            }
+            span{
+                @include typhography(small, 700, $text);
+            }
+        }
+        &--buttons{
+            justify-self: flex-end;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        &--remove, &--edit, &--save{
+            padding: 8px;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;  
+            background-color: $primaryOpacity;
+            fill: $text;
+            border: 1px solid #f5f5f521;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid $primaryOpacity;
+            &:hover{
+                border-color: $primary;
+            }
+            svg{
+                pointer-events: none;
+            }
+        }
+    }
+}
